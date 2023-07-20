@@ -1,3 +1,4 @@
+#1.
 name = "garlic"
 
 stock_code = 990411
@@ -13,3 +14,126 @@ print(f"公司：{name}，股票代码：{stock_code}，当前股价：{stock_pr
 print("每日增长系数是：%3.1f，经过%d天的增长后，股价达到了：%5.2f"%
       (stock_price_daily_growth_factor,growth_days,
        stock_price*stock_price_daily_growth_factor**7))
+
+
+#2.
+user_name = input()
+
+user_type = input()
+
+print(f"您好：{user_name}，您是尊贵的：{user_type}用户，欢迎您的光临")
+
+
+#3.
+if int(input("欢迎来到儿童游乐园，儿童免费，成人收费。\n请输入你的年龄：")) < 18:
+    print("您未成年，免费游玩～")
+else:
+    print("您已成年，游玩需要补票10元～")
+print("祝您游玩愉快。")
+
+
+#4.
+if int(input("欢迎来到动物园\n请输入你的身高：")) > 120:
+    print("您的身高超出120cm，游玩需要购票10元。")
+else:
+    print("您的身高未超出120cm，可以免费游玩。")
+print("祝您游玩愉快。")
+
+
+#5.
+number = 30
+
+if int(input("请输入第一次猜想的数字：")) == number: #第一次机会
+    print("你在第一次猜对了！")
+elif int(input("不对，再猜一次：")) == number: #第二次机会
+    print("你在第二次猜对了！")
+elif int(input("不对，再猜最后一次：")) == number: #第三次机会
+    print("你在第三次猜对了！")
+else:
+    print(f"Sorry，全部猜错啦，我想的是：{number}")
+
+
+#6.
+import random
+num = random.randint(1,10)
+
+gusses1 = int(input("第一次猜想的数字："))
+if gusses1 != num:
+    if gusses1 > num:
+        print("大了")
+    else:
+        print("小了")
+    gusses2 = int(input("第二次猜想的数字："))
+    if gusses2 != num:
+        if gusses2 > num:
+            print("大了")
+        else:
+            print("小了")
+        gusses3 = int(input("第三次猜想的数字："))
+        if gusses3 != num:
+            if gusses3 > num:
+                print("大了，猜数失败")
+            else:
+                print("小了，猜数失败")
+        else:
+            print("你在第三次猜对了！")
+    else:
+        print("你在第二次猜对了！")
+else:
+    print("你在第一次猜对了！")
+
+
+#7.
+i = 1
+sum = 0
+while i<=100:
+    sum = sum + i
+    i = i + 1
+print(sum)
+
+
+#8.
+import random
+num = random.randint(1,5)
+
+inputnum = int(input())
+count = 0
+
+while num != inputnum:
+    count = count + 1
+    print("抱歉，你猜错了！")
+    inputnum = int(input())
+print(f"恭喜你，你猜对了！你猜了{count+1}次！")
+
+
+#9.
+i = 1
+j = 1
+while i <= 9:
+    while j <= i:
+        print(f"{j}*{i}={j*i}\t",end='')
+        j = j + 1
+    j = 1
+    print("\n")
+    i = i + 1
+
+
+#10.
+name = "itheima is a brand of itcast"
+count = 0
+for i in name:
+    if i == 'a':
+        count = count + 1
+
+print(f"{name}中含有：{count}个字母a")
+
+
+
+#11.
+num = 100
+count = 0
+
+for i in range(1,num):
+    if i % 2 == 0:
+        count = count + 1
+print(f"1到{num}（不含{num}本身）范围内，有{count}个偶数。")
