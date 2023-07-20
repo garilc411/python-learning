@@ -1,0 +1,244 @@
+#1.
+for i in range(1,10):
+    for j in range(1,10):
+        if j <= i:
+            print(f"{j}*{i}={j*i}\t",end = "")
+    print("\n")
+
+
+#2.
+import random
+money = 10000
+
+for i in range(1,21):
+    num = random.randint(1,10)
+    if num < 5:
+        print(f"员工{i},绩效分{num}，不发工资，下一位。")
+        continue
+    else:
+        if money >= 1000:
+            money = money - 1000
+            print(f"向员工{i}发放工资1000元，账户余额还剩余{money}元。")
+        else:
+            print("工资发完了，下个月领取吧。")
+            break
+
+
+#3.
+def welcome():
+    print("欢迎来到杭州")
+    print("请出示亚运会门票")
+    
+welcome()
+
+
+#4.
+def temp(x):
+    if x <= 37.3:
+        print("欢迎来到杭州，请配合测量体温")
+        print(f"体温测量中，您的体温是{x}，体温正常请进！")
+    else:
+        print("欢迎来到杭州，请配合测量体温")
+        print(f"体温测量中，您的体温是{x}，体温异常，需要隔离！")
+
+x = int(input("请输入您的体温："))
+temp(x)
+
+
+#5.
+def read():  #查询余额函数
+    print("------查询余额------")
+    print(f"{name}您好，您的余额剩余：{money}元")
+    # main()
+    
+def save(money_save):  #存款函数
+    print("------存款------")
+    global money #加上global表示money指的是全局变量；否则money就是一个和全局变量同名的一个局部变量
+    money = money + money_save
+    print(f"{name}您好，您存款{money_save}元成功")
+    print(f"{name}您好，您的余额剩余：{money}元")
+    # main()
+    
+def take(money_take):  #取款函数
+    print("------取款------")
+    global money
+    if money >= money_take:
+        money = money - money_take
+        print(f"{name}您好，您取款{money_take}元成功")
+        print(f"{name}您好，您的余额剩余：{money}元")
+    else:
+        print("余额不足，取款失败")
+    # main()
+    
+def main():  #主菜单函数
+    print("------主菜单------")
+    print("您好，欢迎来到ATM。请选择操作：")
+    print("查询余额\t【输入1】")
+    print("存款\t【输入2】")
+    print("取款\t【输入3】")
+    print("退出\t【输入4】")
+    choose = int(input("请输入您的选择："))
+    return choose
+
+name = input("请输入客户姓名")
+money = 5000000 #全局变量
+
+while True:
+    choose = main()
+    if choose == 1:
+        read()
+    elif choose == 2:
+        money_save = int(input("请输入存款金额："))
+        save(money_save)
+    elif choose == 3:
+        money_take = int(input("请输入取款金额："))
+        take(money_take)
+    else:
+        break
+
+
+#6.
+my_list = [21,25,21,23,22,20]
+
+#1.
+my_list.append(31)
+print(my_list)
+
+#2.
+my_list.extend([29,33,30])
+print(my_list)
+
+#3.
+element = my_list.pop(0)
+print(element)
+print(my_list)
+
+#4.
+length = len(my_list)
+element = my_list.pop(length-1)
+print(element)
+print(my_list)
+
+#5.
+place = my_list.index(31)
+print(place)
+
+
+#7.
+my_list = [1,2,3,4,5,6,7,8,9,10]
+my_new_list_while = []
+my_new_list_for = []
+
+#用while循环实现
+#length = len(my_list)
+#i = 0
+#while i < length:
+#    if my_list[i]%2 == 0:
+#        my_new_list_while.append(my_list[i])
+#    i += 1
+#print(f"用while循环，从列表{my_list}中取出偶数，组成新列表{my_new_list_while}")
+#print(my_list)
+
+#用户for循环实现
+for j in my_list: #这里的j指列表中第j个，从1开始
+    if my_list[j-1]%2 == 0: #用j表示下标的话要减1
+        my_new_list_for.append(my_list[j-1])
+print(f"用for循环，从列表{my_list}中取出偶数，组成新列表{my_new_list_for}")
+
+
+#8.
+my_tuple = ("garlic",11,["football","music"])
+
+#1.
+place = my_tuple.index(11)
+print(place)
+
+#2.
+name = my_tuple[0]
+print(name)
+
+#3.
+my_tuple[2].pop(0)
+print(my_tuple)
+
+#4.
+my_tuple[2].append("coding")
+print(my_tuple)
+
+
+#9.
+my_str = "today is a beautful day!"
+
+count = my_str.count("is")
+print(f"字符串{my_str}中，有{count}个is")
+
+my_new_str = my_str.replace(" ","|")
+print(f"字符串{my_str}被替换空格后，结果：{my_new_str}")
+
+my_new_list = my_new_str.split("|")
+print(f"字符串{my_new_str}按照｜被分割后，结果：{my_new_list}")
+
+
+#10.
+my_str = "好很气天天今" #要求得到"今天天气很好"
+
+#切片法
+result = my_str[ : :-1]
+
+print(result)
+print(type(result))
+
+
+#11.
+my_list = ["小蒜","上海海洋","小蒜","上海海洋","garlic","shou","garlic","shou","good"]
+
+my_set = set()
+
+print(f"有列表{my_list}")
+
+for element in my_list:
+    # yuansu = my_list[element-1] #错误,这里element就是元素，不是下标
+    # my_set.add(yuansu) #错误
+    my_set.add(element)
+print(f"将列表存入集合后的结果为{my_set}")
+
+
+#12.
+my_dict = {
+    "小王":{
+        "部门":"科技部",
+        "工资":3000,
+        "级别":1
+    },
+    "小周":{
+        "部门":"市场部",
+        "工资":5000,
+        "级别":2
+    },
+    "小林":{
+        "部门":"市场部",
+        "工资":7000,
+        "级别":3
+    },
+    "小张":{
+        "部门":"科技部",
+        "工资":4000,
+        "级别":1
+    },
+    "小刘":{
+        "部门":"市场部",
+        "工资":6000,
+        "级别":2
+    }
+}
+
+print(f"全体员工当前信息如下\n{my_dict}")
+
+for key in my_dict:  #不是按照下标来循环，而是用 键值对 中的 键 来循环
+    if my_dict[key]["级别"] == 1:
+        my_dict[key]["级别"] += 1
+        my_dict[key]["工资"] += 1000
+print(f"全体员工级别为1的员工完成升级后的信息如下：\n{my_dict}")
+
+
+
