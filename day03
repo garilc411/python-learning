@@ -1,0 +1,29 @@
+#1.🥨
+f = open("word.txt","r",encoding = "UTF-8")
+
+# print(f"{f.read()}")
+
+count = 0
+for line in f:
+    line_split = line.split(" ")
+    for element in line_split:
+        if element == "garlic":
+            count += 1
+print(f"有{count}个garlic")
+
+
+#2.🍞
+class student:
+    name = None
+    age = None
+    addr = None
+
+count = 0
+for i in range(1,11):
+    count += 1
+    print(f"当前录入第{count}位学生信息，总共需录入10位学生信息")
+    stu = student()
+    stu.name = input("请输入学生姓名：")
+    stu.age = input("请输入学生年龄：")
+    stu.addr = input("请输入学生地址：")
+    print(f"学生{count}信息录入完成，信息为：【姓名：{stu.name}，年龄：{stu.age}，地址：{stu.addr}】")
